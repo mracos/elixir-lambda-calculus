@@ -17,3 +17,8 @@ nine  = fn f -> fn x -> f.(f.(f.(f.(f.(f.(f.(f.(f.(x))))))))) end end
 # booleans
 true_ = fn a -> fn b -> a end end
 false_ = fn a -> fn b -> b end end
+
+# operators
+succ = fn n -> fn f -> fn x -> f.(n.(f).(x)) end end end
+plus = fn m -> fn n -> m.(succ.(n)) end end
+mult = fn m -> fn n -> fn f -> m.(n.(f)) end end end
