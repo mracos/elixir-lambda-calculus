@@ -25,3 +25,8 @@ plus = fn m -> fn n -> m.(succ.(n)) end end
 sub = fn m -> fn n -> n.(pred.(m)) end end
 mult = fn m -> fn n -> fn f -> m.(n.(f)) end end end
 pow = fn b -> fn e -> e.(b) end end
+
+# boolean operators
+and_ = fn p -> fn q -> p.(q).(p) end end
+or_ = fn p -> fn q -> p.(p).(q) end end
+not_ = fn p -> p.(false_).(true_) end
