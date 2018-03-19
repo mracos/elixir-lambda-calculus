@@ -3,7 +3,7 @@ decode_numeral = fn f -> f.(fn x -> x + 1 end).(0) end
 decode_boolean = fn f -> f.(true).(false) end
 
 # numbers
-zero = fn f -> fn x -> x end end
+zero = fn _f -> fn x -> x end end
 one = fn f -> fn x -> f.(x) end end
 two = fn f -> fn x -> f.(f.(x)) end end
 three = fn f -> fn x -> f.(f.(f.(x))) end end
@@ -15,8 +15,8 @@ eight = fn f -> fn x -> f.(f.(f.(f.(f.(f.(f.(f.(x)))))))) end end
 nine = fn f -> fn x -> f.(f.(f.(f.(f.(f.(f.(f.(f.(x))))))))) end end
 
 # booleans
-true_ = fn a -> fn b -> a end end
-false_ = fn a -> fn b -> b end end
+true_ = fn a -> fn _b -> a end end
+false_ = fn _a -> fn b -> b end end
 
 # operators
 succ = fn n -> fn f -> fn x -> f.(n.(f).(x)) end end end
@@ -24,7 +24,7 @@ succ = fn n -> fn f -> fn x -> f.(n.(f).(x)) end end end
 pred = fn n ->
   fn f ->
     fn x ->
-      n.(fn g -> fn h -> h.(g.(f)) end end).(fn u -> x end).(fn u -> u end)
+      n.(fn g -> fn h -> h.(g.(f)) end end).(fn _u -> x end).(fn u -> u end)
     end
   end
 end
