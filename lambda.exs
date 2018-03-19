@@ -38,3 +38,18 @@ pow = fn b -> fn e -> e.(b) end end
 and_ = fn p -> fn q -> p.(q).(p) end end
 or_ = fn p -> fn q -> p.(p).(q) end end
 not_ = fn p -> p.(false_).(true_) end
+
+# examples of numerals
+IO.puts decode_numeral.(zero)
+IO.puts decode_numeral.(succ.(one))
+IO.puts decode_numeral.(pred.(two))
+IO.puts decode_numeral.(plus.(three).(four))
+IO.puts decode_numeral.(sub.(six).(five))
+IO.puts decode_numeral.(mult.(seven).(eight))
+IO.puts decode_numeral.(pow.(two).(nine))
+
+# examples of booleans
+IO.puts decode_boolean.(true_)
+IO.puts decode_boolean.(and_.(true_).(false_))
+IO.puts decode_boolean.(or_.(true_).(false_))
+IO.puts decode_boolean.(not_.(true_))
