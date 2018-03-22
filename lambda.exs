@@ -38,6 +38,10 @@ pow = fn b -> fn e -> e.(b) end end
 and_ = fn p -> fn q -> p.(q).(p) end end
 or_ = fn p -> fn q -> p.(p).(q) end end
 not_ = fn p -> p.(false_).(true_) end
+ifelse = fn p -> fn a -> fn b -> p.(a).(b) end end end
+
+# predicates
+iszero = fn n -> n.(fn _x -> false_ end).(true_) end
 
 # examples of numerals
 IO.puts decode_numeral.(zero)
@@ -53,3 +57,9 @@ IO.puts decode_boolean.(true_)
 IO.puts decode_boolean.(and_.(true_).(false_))
 IO.puts decode_boolean.(or_.(true_).(false_))
 IO.puts decode_boolean.(not_.(true_))
+IO.puts decode_numeral.(ifelse.(true_).(zero).(one))
+IO.puts decode_numeral.(ifelse.(false_).(zero).(one))
+
+# example of predicates
+IO.puts decode_boolean.(iszero.(zero))
+IO.puts decode_boolean.(iszero.(nine))
