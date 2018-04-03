@@ -29,9 +29,9 @@ pred = fn n ->
   end
 end
 
-plus = fn m -> fn n -> m.(succ.(n)) end end
-sub = fn m -> fn n -> n.(pred.(m)) end end
-mult = fn m -> fn n -> fn f -> m.(n.(f)) end end end
+plus = fn m -> fn n -> m.(succ).(n) end end
+sub = fn m -> fn n -> n.(pred).(m) end end
+mult = fn m -> fn n -> m.(plus.(n)).(zero) end end
 pow = fn b -> fn e -> e.(b) end end
 
 # boolean operators
